@@ -1,8 +1,9 @@
+from __main__ import *
 import numpy as np
 from sklearn import metrics
 
 from . import config
-from __main__ import *
+
 
 
 def accuracy(y_true, y_pred):
