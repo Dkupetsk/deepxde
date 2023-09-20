@@ -4,7 +4,8 @@ from sklearn import metrics
 
 from . import config
 
-
+def sigmoid(x):
+    return 100/(1 + np.exp(-5*(x - 1)))
 
 def accuracy(y_true, y_pred):
     return np.mean(np.equal(np.argmax(y_pred, axis=-1), np.argmax(y_true, axis=-1)))
