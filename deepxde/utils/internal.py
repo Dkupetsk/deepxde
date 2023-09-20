@@ -19,7 +19,7 @@ def timing(f):
 
     @wraps(f)
     def wrapper(*args, **kwargs):
-        from __main__ import *
+        from __main__ import sigmoid, lambdas
         ts = timeit.default_timer()
         result = f(*args, **kwargs)
         te = timeit.default_timer()

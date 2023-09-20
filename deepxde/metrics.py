@@ -19,7 +19,7 @@ def l2_relative_error(y_true, y_pred):
 
 def l2_relative_error_mask_sigmoid(y_true,y_pred):
     #must define sigmoid and lambdas beforehand
-    from __main__ import *
+    from __main__ import sigmoid, lambdas
     return np.linalg.norm(sigmoid(lambdas)*(y_true - y_pred)) / np.linalg.norm(y_true)
 
 
