@@ -4,8 +4,10 @@ from sklearn import metrics
 
 from . import config
 
-def sigmoid(x):
-    return 100/(1 + np.exp(-5*(x - 1)))
+#def sigmoid(x):
+    #return 100/(1 + np.exp(-5*(x - 1)))
+
+#lambdas = np.random.uniform(0,2,200)
 
 def accuracy(y_true, y_pred):
     return np.mean(np.equal(np.argmax(y_pred, axis=-1), np.argmax(y_true, axis=-1)))
@@ -17,6 +19,7 @@ def l2_relative_error(y_true, y_pred):
 
 def l2_relative_error_mask_sigmoid(y_true,y_pred):
     #must define sigmoid and lambdas beforehand
+    from __main__ import *
     return np.linalg.norm(sigmoid(lambdas)*(y_true - y_pred)) / np.linalg.norm(y_true)
 
 

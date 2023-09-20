@@ -1,5 +1,5 @@
 """Internal utilities."""
-from __main__ import *
+
 import inspect
 import sys
 import timeit
@@ -19,6 +19,7 @@ def timing(f):
 
     @wraps(f)
     def wrapper(*args, **kwargs):
+        from __main__ import *
         ts = timeit.default_timer()
         result = f(*args, **kwargs)
         te = timeit.default_timer()
