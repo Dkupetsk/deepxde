@@ -59,6 +59,7 @@ def get(identifier):
     metric_identifier = {
         "accuracy": accuracy,
         "l2 relative error": l2_relative_error,
+        "l2 relative error mask sigmoid": l2_relative_error_mask_sigmoid,
         "nanl2 relative error": nanl2_relative_error,
         "mean l2 relative error": mean_l2_relative_error,
         "mean squared error": mean_squared_error,
