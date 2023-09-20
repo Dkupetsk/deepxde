@@ -1,5 +1,5 @@
 __all__ = ["LossHistory", "Model", "TrainState"]
-
+from __main__ import *
 import pickle
 from collections import OrderedDict
 

@@ -1,4 +1,5 @@
 """Internal utilities."""
+from __main__ import *
 import inspect
 import sys
 import timeit
