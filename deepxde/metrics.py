@@ -4,12 +4,18 @@ from sklearn import metrics
 from . import config
 
 
+
 def accuracy(y_true, y_pred):
     return np.mean(np.equal(np.argmax(y_pred, axis=-1), np.argmax(y_true, axis=-1)))
 
 
 def l2_relative_error(y_true, y_pred):
     return np.linalg.norm(y_true - y_pred) / np.linalg.norm(y_true)
+
+
+def l2_relative_error_mask_sigmoid(y_true,y_pred):
+    #must define sigmoid and lambdas beforehand
+    return np.linalg.norm(sigmoid(lambdas)*(y_true - y_pred)) / np.linalg.norm(y_true)
 
 
 def nanl2_relative_error(y_true, y_pred):
