@@ -20,7 +20,7 @@ def l2_relative_error(y_true, y_pred):
 
 
 def l2_relative_error_mask_sigmoid(y_true,y_pred):
-    from __main__ import sigmoid, lambdas, sigmoidprime, losshistory
+    from model import sigmoid, lambdas, sigmoidprime, losshistory
     sa_lr = 1
     gradl = sigmoidprime(lambdas)*losshistory.loss_train[-1]
     lambdas = lambdas + sa_lr*gradl
