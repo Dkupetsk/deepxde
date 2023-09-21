@@ -20,8 +20,7 @@ def l2_relative_error(y_true, y_pred):
 
 
 def l2_relative_error_mask_sigmoid(y_true,y_pred):
-    from deepxde.model import losshistory
-    from __main__ import lambdas
+    from __main__ import lambdas, losshistory
     def sigmoid(x):
         return 100/(1 + np.exp(-5*(x - 1)))
     def sigmoidprime(x):

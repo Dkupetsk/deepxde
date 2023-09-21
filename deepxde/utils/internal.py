@@ -19,7 +19,7 @@ def timing(f):
 
     @wraps(f)
     def wrapper(*args, **kwargs):
-        #from DeepONet_surge import sigmoid, lambdas, sigmoidprime, num_train, losshistory
+        from __main__ import lambdas, losshistory
         ts = timeit.default_timer()
         result = f(*args, **kwargs)
         te = timeit.default_timer()

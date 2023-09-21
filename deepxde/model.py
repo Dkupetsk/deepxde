@@ -829,7 +829,7 @@ class Model:
         )
 
         if isinstance(self.train_state.y_test, (list, tuple)):
-            #from utils.internal import sigmoid, lambdas, sigmoidprime, num_train
+            from __main__ import lambdas, losshistory
             self.train_state.metrics_test = [
                 m(self.train_state.y_test[i], self.train_state.y_pred_test[i])
                 for m in self.metrics
