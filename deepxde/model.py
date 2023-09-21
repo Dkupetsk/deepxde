@@ -830,9 +830,9 @@ class Model:
 
         if isinstance(self.train_state.y_test, (list, tuple)):
             from __main__ import sigmoid, lambdas, sigmoidprime, losshistory
+            self.num_train = 0
+            self.sa_lr = 1
             self.train_state.metrics_test = [
-                self.num_train = 0
-                self.sa_lr = 1
                 while num_train < 25:
                     self.gradl = sigmoidprime(lambdas)*self.losshistory.loss_train[-1]
                     self.lambdas = self.lambdas + self.sa_lr*self.gradl
