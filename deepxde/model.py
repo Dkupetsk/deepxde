@@ -836,7 +836,7 @@ class Model:
                 for i in range(len(self.train_state.y_test))
             ]
         else:
-            from __main__ import sigmoid, lambdas, sigmoidprime, num_train
+            from __main__ import sigmoid, lambdas, sigmoidprime, num_train, losshistory
             self.train_state.metrics_test = [
                 m(self.train_state.y_test, self.train_state.y_pred_test)
                 for m in self.metrics

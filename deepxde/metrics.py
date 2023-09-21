@@ -24,6 +24,7 @@ def l2_relative_error_mask_sigmoid(y_true,y_pred):
     sa_lr = 1
     gradl = sigmoidprime(lambdas)*losshistory.loss_train[-1]
     lambdas = lambdas + sa_lr*gradl
+    print(lambdas)
     return np.linalg.norm(sigmoid(lambdas)*(y_true - y_pred)) / np.linalg.norm(y_true)
 
 
