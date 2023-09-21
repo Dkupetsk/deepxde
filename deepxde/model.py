@@ -829,18 +829,11 @@ class Model:
         )
 
         if isinstance(self.train_state.y_test, (list, tuple)):
-            from __main__ import sigmoid, lambdas, sigmoidprime, losshistory
-            self.num_train = 0
-            self.sa_lr = 1
+            from __main__ import sigmoid, lambdas, sigmoidprime
             self.train_state.metrics_test = [
-                while num_train < 25:
-                    self.gradl = sigmoidprime(lambdas)*self.losshistory.loss_train[-1]
-                    self.lambdas = self.lambdas + self.sa_lr*self.gradl
-                    self.metrics = [metrics_module.get(m) for m in metrics]
-                    m(self.train_state.y_test[i], self.train_state.y_pred_test[i])
-                    for m in self.metrics
-                    for i in range(len(self.train_state.y_test))
-                    self.num_train += 1
+                m(self.train_state.y_test[i], self.train_state.y_pred_test[i])
+                for m in self.metrics
+                for i in range(len(self.train_state.y_test))
             ]
         else:
             from __main__ import sigmoid, lambdas, sigmoidprime
