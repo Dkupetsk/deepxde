@@ -596,7 +596,7 @@ class Model:
             epochs (Integer): Deprecated alias to `iterations`. This will be removed in
                 a future version.
         """
-        from utils.internal import sigmoid, lambdas, sigmoidprime, losshistory
+        #from utils.internal import sigmoid, lambdas, sigmoidprime, losshistory
         if iterations is None and epochs is not None:
             print(
                 "Warning: epochs is deprecated and will be removed in a future version."
@@ -829,14 +829,14 @@ class Model:
         )
 
         if isinstance(self.train_state.y_test, (list, tuple)):
-            from utils.internal import sigmoid, lambdas, sigmoidprime, num_train
+            #from utils.internal import sigmoid, lambdas, sigmoidprime, num_train
             self.train_state.metrics_test = [
                 m(self.train_state.y_test[i], self.train_state.y_pred_test[i])
                 for m in self.metrics
                 for i in range(len(self.train_state.y_test))
             ]
         else:
-            from __main__ import sigmoid, lambdas, sigmoidprime, num_train, losshistory
+            #from __main__ import sigmoid, lambdas, sigmoidprime, num_train, losshistory
             self.train_state.metrics_test = [
                 m(self.train_state.y_test, self.train_state.y_pred_test)
                 for m in self.metrics

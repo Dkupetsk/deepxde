@@ -20,7 +20,12 @@ def l2_relative_error(y_true, y_pred):
 
 
 def l2_relative_error_mask_sigmoid(y_true,y_pred):
-    from model import sigmoid, lambdas, sigmoidprime, losshistory
+    from model import losshistory
+    from __main__ import lambdas
+    def sigmoid(x):
+        return 100/(1 + np.exp(-5*(x - 1)))
+    def sigmoidprime(x):
+        return 500*np.exp(-5*(x-1))/(1 + np.exp(-5*(x-1))**2)
     sa_lr = 1
     gradl = sigmoidprime(lambdas)*losshistory.loss_train[-1]
     lambdas = lambdas + sa_lr*gradl
