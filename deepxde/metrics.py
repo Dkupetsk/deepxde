@@ -19,7 +19,7 @@ def l2_relative_error(y_true, y_pred):
     return np.linalg.norm(y_true - y_pred) / np.linalg.norm(y_true)
 
 
-def l2_relative_error_mask_sigmoid(y_true,y_pred):
+def l2_error_mask_sigmoid(y_true,y_pred):
     from __main__ import lambdas, losshistory
     def sigmoid(x):
         return 100/(1 + np.exp(-5*(x - 1)))
@@ -29,7 +29,7 @@ def l2_relative_error_mask_sigmoid(y_true,y_pred):
     gradl = sigmoidprime(lambdas)*losshistory.loss_train[-1]
     lambdas = lambdas + sa_lr*gradl
     print(lambdas)
-    return np.linalg.norm(sigmoid(lambdas)*(y_true - y_pred)) / np.linalg.norm(y_true)
+    return np.linalg.norm(sigmoid(lambdas)*(y_true - y_pred))
 
 
 def nanl2_relative_error(y_true, y_pred):
@@ -73,7 +73,7 @@ def get(identifier):
     metric_identifier = {
         "accuracy": accuracy,
         "l2 relative error": l2_relative_error,
-        "l2 relative error mask sigmoid": l2_relative_error_mask_sigmoid,
+        "l2 error mask sigmoid": l2_error_mask_sigmoid,
         "nanl2 relative error": nanl2_relative_error,
         "mean l2 relative error": mean_l2_relative_error,
         "mean squared error": mean_squared_error,
