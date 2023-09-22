@@ -19,7 +19,7 @@ def l2_relative_error(y_true, y_pred):
     return np.linalg.norm(y_true - y_pred) / np.linalg.norm(y_true)
 
 def l2_error(y_true,y_pred):
-    return bkd.reduce_sum(bkd.from_numpy(y_true) - bkd.from_numpy(y_pred))
+    return bkd.reduce_sum(bkd.abs(bkd.from_numpy(y_true) - bkd.from_numpy(y_pred)))
 
 
 def l2_error_mask_sigmoid(y_true,y_pred):
