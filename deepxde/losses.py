@@ -67,6 +67,7 @@ LOSS_DICT = {
     "mean l2 relative error": mean_l2_relative_error,
     "l2 error mask sigmoid": l2_error_mask_sigmoid,
     "softmax cross entropy": softmax_cross_entropy,
+    "use lambdas": uselambdas,
     "zero": zero,
 }
 
