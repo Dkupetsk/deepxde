@@ -32,7 +32,7 @@ def l2_error_mask_sigmoid(y_true,y_pred):
         return 100/(1 + bkd.exp(-5*(x - 1)))
     def sigmoidprime(x):
         return 500*bkd.exp(-5*(x-1))/(1 + bkd.exp(-5*(x-1))**2)
-    gradl = sigmoidprime(lambdas)*losshistory.metrics_test(-1)
+    gradl = sigmoidprime(lambdas)*losshistory.metrics_test[-1][0]
     lambdas = lambdas + sa_lr*gradl
     return bkd.reduce_mean(sigmoid(lambdas)*(y_true - y_pred))
 
