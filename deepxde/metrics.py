@@ -1,7 +1,7 @@
 from __main__ import *
 import numpy as np
 from sklearn import metrics
-
+import backend as bkd
 from . import config
 
 
@@ -17,6 +17,9 @@ def accuracy(y_true, y_pred):
 
 def l2_relative_error(y_true, y_pred):
     return np.linalg.norm(y_true - y_pred) / np.linalg.norm(y_true)
+
+def l2_error(y_true,y_pred):
+    return bkd.reduce_sum(y_true - y_pred)
 
 
 def l2_error_mask_sigmoid(y_true,y_pred):
@@ -73,6 +76,7 @@ def get(identifier):
     metric_identifier = {
         "accuracy": accuracy,
         "l2 relative error": l2_relative_error,
+        "l2 error": l2_error,
         "l2 error mask sigmoid": l2_error_mask_sigmoid,
         "nanl2 relative error": nanl2_relative_error,
         "mean l2 relative error": mean_l2_relative_error,
