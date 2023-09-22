@@ -29,11 +29,11 @@ def mean_l2_relative_error(y_true, y_pred):
 def l2_error_mask_sigmoid(y_true,y_pred):
     from __main__ import lambdas, losshistory, sa_lr
     def sigmoid(x):
-        y = 100/(1 + bkd.exp(-5*(x - 1)))
+        y = 1/(1 + bkd.exp(-(x - 2)))
         y[y < 0] = 0 #strictly positive range
         return y
     def sigmoidprime(x):
-        y = 500*bkd.exp(-5*(x-1))/(1 + bkd.exp(-5*(x-1))**2)
+        y = bkd.exp(-(x-2))/(1 + bkd.exp(-(-x - 2))**2)
         y[y < 0] = 0
         return y #strictly increasing
     gradl = sigmoidprime(lambdas)*losshistory.metrics_test[-1][0]
