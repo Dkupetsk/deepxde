@@ -43,7 +43,7 @@ def l2_error_mask_sigmoid(y_true,y_pred):
 
 def uselambdas(y_true,y_pred):
     from __main__ import lambdas
-    return torch.dot(bkd.reduce_mean(y_true - y_pred),lambdas)
+    return bkd.reduce_mean(torch.dot(lambdas,torch.flatten(y_true - y_pred)))
 
 def softmax_cross_entropy(y_true, y_pred):
     # TODO: pytorch
