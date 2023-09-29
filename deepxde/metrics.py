@@ -22,7 +22,7 @@ def l2_error(y_true,y_pred):
     return bkd.reduce_sum(bkd.abs(bkd.from_numpy(y_true) - bkd.from_numpy(y_pred)))
 
 def mean_squared_error2(y_true, y_pred):
-    return bkd.square(bkd.from_numpy(y_true - y_pred))
+    return np.square(y_true - y_pred)
 
 def l2_error_mask_sigmoid(y_true,y_pred):
     from __main__ import lambdas, losshistory
