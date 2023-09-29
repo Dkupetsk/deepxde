@@ -19,7 +19,7 @@ def timing(f):
 
     @wraps(f)
     def wrapper(*args, **kwargs):
-        from __main__ import lambdas, losshistory
+        #from __main__ import lambdas, losshistory
         ts = timeit.default_timer()
         result = f(*args, **kwargs)
         te = timeit.default_timer()

@@ -596,7 +596,7 @@ class Model:
             epochs (Integer): Deprecated alias to `iterations`. This will be removed in
                 a future version.
         """
-        from __main__ import sigmoid, lambdas, sigmoidprime, losshistory
+        #from __main__ import sigmoid, lambdas, sigmoidprime, losshistory
         if iterations is None and epochs is not None:
             print(
                 "Warning: epochs is deprecated and will be removed in a future version."
@@ -812,7 +812,7 @@ class Model:
 
     def _test(self):
         # TODO Now only print the training loss in rank 0. The correct way is to print the average training loss of all ranks.
-        from __main__ import sa_lr, lambdas, losshistory
+        #from __main__ import sa_lr, lambdas, losshistory
         (
             self.train_state.y_pred_train,
             self.train_state.loss_train,
@@ -830,14 +830,14 @@ class Model:
         )
 
         if isinstance(self.train_state.y_test, (list, tuple)):
-            from __main__ import lambdas, losshistory
+            #from __main__ import lambdas, losshistory
             self.train_state.metrics_test = [
                 m(self.train_state.y_test[i], self.train_state.y_pred_test[i])
                 for m in self.metrics
                 for i in range(len(self.train_state.y_test))
             ]
         else:
-            from __main__ import sigmoid, lambdas, sigmoidprime, num_train, losshistory
+            #from __main__ import sigmoid, lambdas, sigmoidprime, num_train, losshistory
             self.train_state.metrics_test = [
                 m(self.train_state.y_test, self.train_state.y_pred_test)
                 for m in self.metrics

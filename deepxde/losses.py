@@ -23,6 +23,8 @@ def mean_squared_error(y_true, y_pred):
     #     although it finally casts loss back to the original type.
     return bkd.reduce_mean(bkd.square(y_true - y_pred))
 
+def mean_squared_error2(y_true, y_pred):
+    return bkd.square(y_true - y_pred)
 
 def mean_l2_relative_error(y_true, y_pred):
     return bkd.reduce_mean(bkd.norm(y_true - y_pred, axis=1) / bkd.norm(y_true, axis=1))
