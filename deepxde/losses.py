@@ -28,7 +28,8 @@ def mean_l2_relative_error(y_true, y_pred):
     return bkd.reduce_mean(bkd.norm(y_true - y_pred, axis=1) / bkd.norm(y_true, axis=1))
 
 def l2_error_mask_sigmoid(y_true,y_pred):
-    from __main__ import lambdas, losshistory, sa_lr
+    from __main__ import lambdas, sa_lr
+    from model import LossHistory
     def sigmoid(x):
         y = 1/(1 + bkd.exp(-(x - 2)))
         y[y < 0] = 0 #strictly positive range
