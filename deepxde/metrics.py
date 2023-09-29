@@ -21,6 +21,8 @@ def l2_relative_error(y_true, y_pred):
 def l2_error(y_true,y_pred):
     return bkd.reduce_sum(bkd.abs(bkd.from_numpy(y_true) - bkd.from_numpy(y_pred)))
 
+def mean_squared_error2(y_true, y_pred):
+    return bkd.square(y_true - y_pred)
 
 def l2_error_mask_sigmoid(y_true,y_pred):
     from __main__ import lambdas, losshistory
@@ -83,6 +85,7 @@ def get(identifier):
         "mean squared error": mean_squared_error,
         "MSE": mean_squared_error,
         "mse": mean_squared_error,
+        "mse2": mean_squared_error2,
         "MAPE": mean_absolute_percentage_error,
         "max APE": max_absolute_percentage_error,
         "APE SD": absolute_percentage_error_std,
