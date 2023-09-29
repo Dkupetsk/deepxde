@@ -64,6 +64,7 @@ LOSS_DICT = {
     "mean squared error": mean_squared_error,
     "MSE": mean_squared_error,
     "mse": mean_squared_error,
+    "mse2": mean_squared_error2,
     "mean absolute percentage error": mean_absolute_percentage_error,
     "MAPE": mean_absolute_percentage_error,
     "mape": mean_absolute_percentage_error,
