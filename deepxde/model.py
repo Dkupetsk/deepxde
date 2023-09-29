@@ -596,7 +596,7 @@ class Model:
             epochs (Integer): Deprecated alias to `iterations`. This will be removed in
                 a future version.
         """
-        from utils.internal import sigmoid, lambdas, sigmoidprime, losshistory
+        from __main__ import sigmoid, lambdas, sigmoidprime, losshistory
         if iterations is None and epochs is not None:
             print(
                 "Warning: epochs is deprecated and will be removed in a future version."
