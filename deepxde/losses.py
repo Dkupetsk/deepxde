@@ -45,6 +45,7 @@ LOSS_DICT = {
     "MAE": mean_absolute_error,
     "mae": mean_absolute_error,
     "mean squared error": mean_squared_error,
+    'msqmask': msqmask,
     "MSE": mean_squared_error,
     "mse": mean_squared_error,
     "mean absolute percentage error": mean_absolute_percentage_error,
