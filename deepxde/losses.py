@@ -26,6 +26,9 @@ def mean_squared_error(y_true, y_pred):
 def mean_l2_relative_error(y_true, y_pred):
     return bkd.reduce_mean(bkd.norm(y_true - y_pred, axis=1) / bkd.norm(y_true, axis=1))
 
+def msqmask(y_true, y_pred):
+    from __main__ import sigmoid, lambdas
+    return bkd.reduce_mean(sigmoid(lambdas)*bkd.square(y_true - y_pred))
 
 def softmax_cross_entropy(y_true, y_pred):
     # TODO: pytorch
