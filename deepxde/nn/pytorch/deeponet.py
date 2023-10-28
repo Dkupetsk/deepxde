@@ -120,7 +120,7 @@ class DeepONetCartesianProd(NN):
             raise AssertionError(
                 "Output sizes of branch net and trunk net do not match."
             )
-        x = torch.einsum("bni,bni->bn", x_func, x_loc)
+        x = torch.einsum("abi,bni->bn", x_func, x_loc)
         # Add bias
         x += self.b
 
